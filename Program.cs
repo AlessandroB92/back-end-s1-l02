@@ -33,22 +33,29 @@
             // Creazione di un oggetto Persona
             Persona persona = new Persona();
 
-            // Assegnazione dei valori alle proprietà
-            persona.Nome = "Mario";
-            persona.Cognome = "Rossi";
-            persona.Eta = 30;
+            // Richiesta e assegnazione dei valori per Nome, Cognome ed Eta
+            Console.WriteLine("Inserisci il nome:");
+            persona.Nome = Console.ReadLine();
+
+            Console.WriteLine("Inserisci il cognome:");
+            persona.Cognome = Console.ReadLine();
+
+            Console.WriteLine("Inserisci l'età:");
+            if (int.TryParse(Console.ReadLine(), out int eta))
+            {
+                persona.Eta = eta;
+            }
+            else
+            {
+                Console.WriteLine("Inserimento non valido. L'età verrà impostata a 0.");
+                persona.Eta = 0;
+            }
 
             // Stampa dei dettagli utilizzando i metodi della classe
             Console.WriteLine("Nome: " + persona.GetNome());
             Console.WriteLine("Cognome: " + persona.GetCognome());
             Console.WriteLine("Età: " + persona.GetEta());
             Console.WriteLine("Dettagli: " + persona.GetDettagli());
-
-            // Puoi anche accedere direttamente alle proprietà se sono impostate come pubbliche
-            // Console.WriteLine("Nome: " + persona.Nome);
-            // Console.WriteLine("Cognome: " + persona.Cognome);
-            // Console.WriteLine("Età: " + persona.Eta);
-            // Console.WriteLine("Dettagli: " + persona.GetDettagli());
         }
     }
 }
